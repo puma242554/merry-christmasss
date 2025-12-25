@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Little Gift for You🎄✨</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #1a2a3a, #000);
+      overflow: hidden;
+      height: 100vh;
+      color: #fff;
+    }
+
+    /* Snow */
+    .snow {
+      position: fixed;
+      top: -10px;
+      color: #fff;
+      user-select: none;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh); }
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      z-index: 2;
+      max-width: 420px;
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(255,255,255,0.15);
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(-55%) translateX(0); }
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ffd36a, #fff, #ffd36a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    button {
+      margin-top: 22px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #ff6a6a, #ffb86b);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255,120,120,0.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 15px 35px rgba(255,120,120,0.6);
+    }
+
+    .hidden { display: none; }
+
+    .glow {
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ffd36a; }
+      to { text-shadow: 0 0 25px #ffd36a; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1 class="glow">🎄 Merry Christmas 🎄</h1>
+    <p id="intro">มีบางอย่างอยากบอกในคืนพิเศษนี้… ฮ็อปป</p>
+    <button onclick="reveal()">กดดูซี้ ✨</button>
+    <p id="msg" class="hidden">
+      คริสต์มาสนี้หนูไม่ได้ขออะไรเลย เพราะสิ่งที่อยากได้…กำลังอ่านอยู่นี่แหละ อ้ะล้อเล่น555<br>
+      ขอให้ทุกวันที่เหลือของปีนี้ มีความสุขมากขึ้นเรื่อยๆและหวังว่าหนูจะได้เป็นหนึ่งในความสุขของพี่ด้วยนะ💕💖<br>
+      ขอให้ของขวัญทุกชิ้นที่พี่ได้รับ สู้ความสุขที่หนูขอให้พี่ไม่ได้เลย เพราะสิ่งที่หนูอยากให้มากที่สุด คือรอยยิ้มของพี่😊<br>
+      55555พอๆเลี่ยนมาเยอะละ ขอบคุณที่รับเเอดไอจี เเละ คุยด้วยกัน ฮ็อปป เขินอ่ะ เกิดมาไม่เคยทำอะไรเเบบนี้เลยย มีความสุขมากน้า สุดท้าย ลูเยิฟ เลิฟยูนะค้าา🎁✨
+    </p>
+  </div>
+
+  <script>
+    function reveal() {
+      document.getElementById('msg').classList.remove('hidden');
+    }
+
+    // create snow
+    const snowCount = 40;
+    for (let i = 0; i < snowCount; i++) {
+      const snow = document.createElement('div');
+      snow.className = 'snow';
+      snow.innerHTML = '❄';
+      snow.style.left = Math.random() * 100 + 'vw';
+      snow.style.animationDuration = (5 + Math.random() * 5) + 's';
+      snow.style.fontSize = (12 + Math.random() * 18) + 'px';
+      document.body.appendChild(snow);
+    }
+  </script>
+
+</body>
+</html>
